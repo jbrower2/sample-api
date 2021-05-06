@@ -1,0 +1,28 @@
+<html>
+	<head>
+		<title>Cool Site</title>
+		<script>
+			window.onload = () => {
+				const output = document.getElementById("output");
+				window
+					.fetch("http://localhost:8080/stuff")
+					.then((response) => response.json())
+					.then((stuff) => {
+						for (const { cool, nice } of stuff) {
+							const span = document.createElement("span");
+							span.id = cool;
+							span.innerText = nice;
+							output.appendChild(span);
+						}
+					})
+					.catch((err) => {
+						console.error(err);
+						setTimeout(() => alert(err), 0);
+					});
+			};
+		</script>
+	</head>
+	<body>
+		<div id="output"></div>
+	</body>
+</html>
