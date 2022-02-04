@@ -5,7 +5,7 @@
 			window.onload = () => {
 				const output = document.getElementById("output");
 				window
-					.fetch("http://localhost:8080/stuff")
+					.fetch("/stuff")
 					.then((response) => response.json())
 					.then((stuff) => {
 						for (const { cool, nice } of stuff) {
